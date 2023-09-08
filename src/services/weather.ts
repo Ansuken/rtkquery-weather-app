@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Forecast } from '../interfaces/forecast-weather.interface';
 
 const key = '1df1706d1b734f2fa38104200230709';
-const baseUrl = 'http://api.weatherapi.com/v1';
+const baseUrl = 'https://api.weatherapi.com/v1';
 
 export const weatherApi = createApi({
     reducerPath: 'currentWeather',

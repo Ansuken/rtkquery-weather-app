@@ -5,9 +5,10 @@ import './weather-widget.css';
 interface Props {
     location: string;
     handleRemoveWidget: () => void;
+    isCurrentLocation: boolean;
 }
 
-export const WeatherWidgetContainer = ({location, handleRemoveWidget}: Props) => {
+export const WeatherWidgetContainer = ({location, handleRemoveWidget, isCurrentLocation}: Props) => {
     const { data, error, isLoading } = useGetWeatherByLocationQuery(location);
 
     const getLocalTime = (localtime: string) => localtime.split(' ')[1]
@@ -50,7 +51,7 @@ export const WeatherWidgetContainer = ({location, handleRemoveWidget}: Props) =>
                                     </div>
                                 </div>
                                 <div className="weather__location">
-                                    {data.location.name}
+                                    {isCurrentLocation ? 'My Location' : data.location.name}
                                 </div>
                             </div>
                         </div>
@@ -64,7 +65,7 @@ export const WeatherWidgetContainer = ({location, handleRemoveWidget}: Props) =>
                                 ))
                             }
                         </div>
-                        <div className="weatherWidget__remove" onClick={handleRemoveWidget}>X</div>
+                        { !isCurrentLocation && <div className="weatherWidget__remove" onClick={handleRemoveWidget}>X</div> }
                     </div>
                 ) : null
             }

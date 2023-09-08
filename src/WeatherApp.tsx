@@ -1,8 +1,18 @@
+import { useEffect, useState } from 'react';
 import { AddNewLocationButton, AddNewLocation, Button, Input, WeatherWidgetContainer } from './components';
 import { useWeather } from './hooks';
 
 export const WeatherApp = () => {
     
+    const [ currentLocation, setCurrentLocation ] = useState<string>('');
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            setCurrentLocation(`${latitude},${longitude}`);
+        });
+    }, [])
+
     const {
         addLocationForm,
         handleAddLocation,
@@ -17,12 +27,16 @@ export const WeatherApp = () => {
     return (
         <div className='weatherApp'>
             {
+                currentLocation 
+                    && <WeatherWidgetContainer isCurrentLocation={true} location={currentLocation} handleRemoveWidget={()=>handleRemoveWidget(currentLocation)}/>
+            }
+            {
                 locations ? locations.map((location: string, index: number) => (
-                    <WeatherWidgetContainer location={location} key={index} handleRemoveWidget={()=>handleRemoveWidget(location)}/>
+                    <WeatherWidgetContainer isCurrentLocation={false} location={location} key={index} handleRemoveWidget={()=>handleRemoveWidget(location)}/>
                 )) : null
             }
             {
-                locations.length < 3 &&
+                locations.length < 5 &&
                 <AddNewLocation className="addLocation">
                     {
                         !addLocationForm 

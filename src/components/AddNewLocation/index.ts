@@ -1,0 +1,1 @@
+export { AddNewLocation } from './AddNewLocation';

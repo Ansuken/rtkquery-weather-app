@@ -1,0 +1,177 @@
+.weatherWidget {
+    width: 26em;
+    border-radius: 1em;
+    background-color: white;
+    box-shadow: 0px 6px 20px var(--box-shadow);
+    position: relative;
+}
+/* DAY */
+.sunny-bg {
+    background: rgb(239,199,69);
+    background: -moz-linear-gradient(240deg, rgba(239,199,69,1) 0%, rgba(236,114,99,1) 100%);
+    background: -webkit-linear-gradient(240deg, rgba(239,199,69,1) 0%, rgba(236,114,99,1) 100%);
+    background: linear-gradient(240deg, rgba(239,199,69,1) 0%, rgba(236,114,99,1) 100%);
+    color: white;
+}
+
+.cloudy-bg {
+    background: rgb(128,183,240);
+    background: -moz-linear-gradient(240deg, rgb(147, 148, 155) 0%, rgb(56, 142, 231) 100%);
+    background: -webkit-linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(56,142,231,1) 100%);
+    background: linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(56,142,231,1) 100%);
+    color: white;
+}
+
+.partly-cloudy-bg {
+    background: rgb(128,183,240);
+    background: -moz-linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(56,142,231,1) 20%);
+    background: -webkit-linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(56,142,231,1) 20%);
+    background: linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(56,142,231,1) 20%);
+    color: white;
+}
+
+.overcast-bg {
+    background: rgb(73,80,115);
+    background: -moz-linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(42,50,89,1) 100%);
+    background: -webkit-linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(42,50,89,1) 100%);
+    background: linear-gradient(240deg, rgb(147, 148, 155) 0%, rgba(42,50,89,1) 100%);
+    color: white;
+}
+
+.rainy-bg, .light-rain-bg {
+    background: rgb(73,80,115);
+    background: -moz-linear-gradient(240deg, rgba(73,80,115,1) 0%, rgba(42,50,89,1) 100%);
+    background: -webkit-linear-gradient(240deg, rgba(73,80,115,1) 0%, rgba(42,50,89,1) 100%);
+    background: linear-gradient(240deg, rgba(73,80,115,1) 0%, rgba(42,50,89,1) 100%);
+    color: white;
+}
+
+.mist-bg {
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(240deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+    background: -webkit-linear-gradient(240deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+    background: linear-gradient(240deg, rgba(255,255,255,1) 0%, rgba(220,220,220,1) 100%);
+}
+
+.sunny-footer-bg {
+    background-color: #a75265;
+}
+
+.cloudy-footer-bg, .partly-cloudy-footer-bg {
+    background-color: #2b62a9;
+}
+
+.overcast-footer-bg {
+    background-color: #4d4f97;
+}
+
+.rainy-footer-bg, .light-rain-footer-bg {
+    background-color: #6e6f96;
+}
+
+.mist-footer-bg {
+    background-color: #FFFFFF;
+}
+
+/* NIGHT */
+.clear-bg {
+    background: rgb(41,49,68);
+    background: -moz-linear-gradient(240deg, rgb(73, 81, 99) 0%, rgba(34,34,34,1) 100%);
+    background: -webkit-linear-gradient(240deg, rgb(73, 81, 99) 0%, rgba(34,34,34,1) 100%);
+    background: linear-gradient(240deg, rgb(73, 81, 99) 0%, rgba(34,34,34,1) 100%);
+    color: white;
+}
+
+.clear-footer-bg {
+    background: #4d4f97;
+}
+
+.weather {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+.weather__left {
+}
+.weather__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.weather__condition {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.weather__condition img {
+    width: 2em;
+    height: 2em;
+}
+
+.weather__temp {
+    font-size: 4em;
+    font-weight: 600;
+}
+
+.weather__date {
+    text-align: right;
+    
+}
+.weather__date--time {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.weather__location {
+    text-align: right;
+}
+
+.weatherWidget__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 1em;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+
+.future__item {
+    display: flex;
+    text-transform: uppercase;
+    align-items: center;
+    flex-direction: column;
+}
+.future__item img{
+    width: 2em;
+    height: 2em;
+}
+
+.weatherWidget__remove {
+    position: absolute;
+    top: -0.5em;
+    left: calc(50% - 0.8rem);
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 0em 0.4em;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.weatherWidget:hover .weatherWidget__remove {
+    top: 1em;
+    opacity: 1;
+}
+
+@media screen and (max-width: 768px) {
+    .weatherWidget {
+        width: 90%;
+    }
+    .weatherWidget__remove {
+        top: 0.5em;
+    }
+}

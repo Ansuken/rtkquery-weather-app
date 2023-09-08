@@ -1,0 +1,1 @@
+export { AddNewLocationButton } from './AddNewLocationButton';

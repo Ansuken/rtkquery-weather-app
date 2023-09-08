@@ -38,7 +38,7 @@
     color: white;
 }
 
-.rainy-bg, .light-rain-bg {
+.rainy-bg, .light-rain-bg, .light-rain-shower-bg {
     background: rgb(73,80,115);
     background: -moz-linear-gradient(240deg, rgba(73,80,115,1) 0%, rgba(42,50,89,1) 100%);
     background: -webkit-linear-gradient(240deg, rgba(73,80,115,1) 0%, rgba(42,50,89,1) 100%);
@@ -65,7 +65,7 @@
     background-color: #4d4f97;
 }
 
-.rainy-footer-bg, .light-rain-footer-bg {
+.rainy-footer-bg, .light-rain-footer-bg, .light-rain-shower-footer-bg {
     background-color: #6e6f96;
 }
 

@@ -11,7 +11,7 @@ export const WeatherWidgetContainer = ({location, handleRemoveWidget}: Props) =>
     const { data, error, isLoading } = useGetWeatherByLocationQuery(location);
 
     const getLocalTime = (localtime: string) => localtime.split(' ')[1]
-    const getWeatherClass = (text: string) => text.replace(' ', '-').toLocaleLowerCase();
+    const getWeatherClass = (text: string) => text.split(' ').join('-').toLocaleLowerCase();
 
     useEffect(() => {
         if (error) handleRemoveWidget()
